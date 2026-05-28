@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>远航 · 客车产业周刊 2026-W22 试刊号 | KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</title>
+  <title>远航 · 客车产业周刊 2026-W22 | KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</title>
   <style>
     :root {
       --paper: #f7f4ee;
@@ -66,9 +66,9 @@
     h1 {
       max-width: 1120px;
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
       font-size: clamp(42px, 6vw, 92px);
-      line-height: .92;
+      line-height: .98;
       letter-spacing: 0;
       word-break: keep-all;
       overflow-wrap: normal;
@@ -82,6 +82,27 @@
     }
 
     .title-lockup span {
+      white-space: nowrap;
+    }
+
+    .title-cn-part {
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
+    }
+
+    .title-issue-code {
+      align-self: baseline;
+      font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+      font-size: .76em;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+
+    .title-cn-suffix {
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
+      font-size: .86em;
+      font-weight: 400;
       white-space: nowrap;
     }
 
@@ -297,6 +318,84 @@
       font-weight: 700;
     }
 
+    .feedback-block {
+      color: var(--muted);
+    }
+
+    .article-feedback {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .issue-feedback {
+      padding: clamp(22px, 3vw, 32px);
+      background: rgba(255, 253, 248, .62);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(17, 24, 39, .035);
+      text-align: center;
+    }
+
+    .feedback-question {
+      margin: 0 0 9px;
+      color: #5f5a52;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .feedback-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .feedback-button {
+      min-height: 30px;
+      border-radius: 999px;
+      border-color: #d8d0c2;
+      background: rgba(255, 253, 248, .28);
+      color: #5a554d;
+      padding: 4px 11px;
+      font-size: 12px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease, box-shadow .12s ease, color .12s ease;
+    }
+
+    .feedback-button:hover {
+      border-color: #b9ad9b;
+      background: rgba(243, 239, 230, .58);
+      color: #3f3a33;
+    }
+
+    .feedback-button:active,
+    .feedback-button.is-pressing {
+      transform: translateY(.5px) scale(.99);
+      box-shadow: inset 0 1px 4px rgba(17, 24, 39, .12);
+    }
+
+    .feedback-button.is-selected {
+      border-color: #a89d8e;
+      background: rgba(217, 210, 197, .42);
+      color: #3f3a33;
+    }
+
+    .feedback-note,
+    .feedback-status {
+      margin: 8px 0 0;
+      font-size: 12px;
+    }
+
+    .feedback-note {
+      color: #8a857c;
+    }
+
+    .feedback-status {
+      min-height: 1.65em;
+      color: #8a8178;
+    }
+
     @media (max-width: 760px) {
       .masthead {
         min-height: 56vh;
@@ -330,6 +429,10 @@
         display: grid;
         grid-template-columns: 1fr;
       }
+
+      .feedback-actions {
+        align-items: stretch;
+      }
     }
   </style>
 </head>
@@ -340,7 +443,7 @@
         <span>远航 | KL Voyage</span>
         <span>2026-W22</span>
       </div>
-      <h1 class="title-lockup"><span>远航 ·</span><span>客车产业周刊</span><span>2026-W22</span><span>试刊号</span></h1>
+      <h1 class="title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span><span class="title-issue-code">2026-W22</span></h1>
       <div class="subtitle">
         <p>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</p>
         <div class="issue-meta">
@@ -401,6 +504,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>EMT Palma welcomes new batch of 23 electric buses by BYD and Castrosua</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-001">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>Sustainable Bus</span>
             <span>electric_bus / fleet_renewal</span>
@@ -444,6 +558,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>Hydrogen buses make their Bologna debut</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-002">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>TPER</span>
             <span>fuel_cell / fleet_renewal</span>
@@ -487,6 +612,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>Germany: EIB backs cleaner public transport in Hamburg with EUR34 million loan to vhh.mobility</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-003">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>European Investment Bank</span>
             <span>charging_infrastructure / public_transport_policy</span>
@@ -530,6 +666,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>BVG plant auch auf Buslinien von Auftragnehmern elektrischen Betrieb</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-004">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>BVG</span>
             <span>electric_bus / operations_service / public_transport_policy</span>
@@ -573,6 +720,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>IVECO BUS awarded contracts for electrification of Limoges Métropole transport network in France</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-005">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>IVECO BUS</span>
             <span>electric_bus / charging_infrastructure / fleet_renewal</span>
@@ -616,6 +774,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>Scania and VR Sweden sign an agreement for 91 battery-electric buses</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-006">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>Scania</span>
             <span>electric_bus / fleet_renewal</span>
@@ -659,6 +828,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>E-Bus Xpress transforms urban mobility in Uganda</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-007">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>Uganda Info Hub</span>
             <span>electric_bus / public_transport_policy / operations_service</span>
@@ -702,6 +882,17 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>Growing our zero-emission fleet with Victoria&#039;s largest charging depot</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-008">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>Kinetic</span>
             <span>charging_infrastructure / electric_bus</span>
@@ -745,15 +936,38 @@
             <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
             <p class="source-note"><strong>来源标题：</strong>VinBus has 2,000 e-buses in operation in Vietnam. And VinFast is targeting Europe</p>
           </div>
+          
+          <section class="feedback-block article-feedback" data-feedback-scope="article" data-issue-id="voyage-2026-W22.draft" data-article-id="voyage-2026-W22-009">
+            <p class="feedback-question">如何评价本文？</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="article_more_like_this" type="button">有启发，多看此类</button>
+<button class="feedback-button" data-feedback-value="article_keep" type="button">可保留</button>
+<button class="feedback-button" data-feedback-value="article_not_needed" type="button">暂不需要</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
           <footer class="card-footer">
             <span>Sustainable Bus</span>
             <span>electric_bus / market_event / manufacturing_supply</span>
             <a href="https://www.sustainable-bus.com/electric-bus/vinbus-2-000-electric-buses-vietnam-vinfast-europe/" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
           </footer>
         </article>
+      
+          <section class="feedback-block issue-feedback" data-feedback-scope="issue" data-issue-id="voyage-2026-W22.draft">
+            <p class="feedback-question">本期阅读体验：</p>
+            <div class="feedback-actions">
+              <button class="feedback-button" data-feedback-value="issue_valuable" type="button">有收获</button>
+<button class="feedback-button" data-feedback-value="issue_neutral" type="button">中规中矩</button>
+<button class="feedback-button" data-feedback-value="issue_unfocused" type="button">不够聚焦</button>
+            </div>
+            <p class="feedback-note">匿名反馈，仅用于优化后续选题与阅读体验。</p>
+            <p class="feedback-status" role="status" aria-live="polite"></p>
+          </section>
     </div>
   </main>
 
+  <script type="application/json" id="feedback-config">{"enabled":false,"endpoint_url":"","mode":"placeholder","collector_version":"v0-ui-placeholder"}</script>
   <script>
     document.querySelectorAll(".filter-row button").forEach((button) => {
       button.addEventListener("click", () => {
@@ -777,6 +991,46 @@
           const isBody = button.dataset.mode === "body";
           summary.hidden = isBody;
           body.hidden = !isBody;
+        });
+      });
+    });
+
+    const feedbackConfigElement = document.getElementById("feedback-config");
+    const feedbackConfig = feedbackConfigElement
+      ? JSON.parse(feedbackConfigElement.textContent || "{}")
+      : {};
+    const feedbackPreviewMessage = "反馈通道即将启用，当前仅作页面预览。";
+
+    function buildFeedbackPayload(panel, button) {
+      return {
+        collector_version: feedbackConfig.collector_version || "v0-ui-placeholder",
+        scope: panel.dataset.feedbackScope || "",
+        issue_id: panel.dataset.issueId || "",
+        article_id: panel.dataset.articleId || "",
+        feedback_value: button.dataset.feedbackValue || ""
+      };
+    }
+
+    function showFeedbackStatus(panel, message) {
+      const status = panel.querySelector(".feedback-status");
+      if (status) {
+        status.textContent = message;
+      }
+    }
+
+    document.querySelectorAll(".feedback-block").forEach((panel) => {
+      panel.querySelectorAll(".feedback-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          panel.querySelectorAll(".feedback-button").forEach((item) => {
+            item.classList.remove("is-selected", "is-pressing");
+          });
+          button.classList.add("is-selected", "is-pressing");
+          window.setTimeout(() => button.classList.remove("is-pressing"), 160);
+          window.setTimeout(() => button.classList.remove("is-selected"), 1200);
+
+          const payload = buildFeedbackPayload(panel, button);
+          void payload;
+          showFeedbackStatus(panel, feedbackPreviewMessage);
         });
       });
     });

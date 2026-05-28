@@ -65,9 +65,9 @@
     h1 {
       max-width: 1120px;
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
       font-size: clamp(52px, 7vw, 96px);
-      line-height: .9;
+      line-height: .96;
       letter-spacing: 0;
       word-break: keep-all;
       overflow-wrap: normal;
@@ -81,6 +81,27 @@
     }
 
     .title-lockup span {
+      white-space: nowrap;
+    }
+
+    .title-cn-part {
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
+    }
+
+    .title-issue-code {
+      align-self: baseline;
+      font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+      font-size: .76em;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+
+    .title-cn-suffix {
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
+      font-size: .86em;
+      font-weight: 400;
       white-space: nowrap;
     }
 
@@ -131,47 +152,127 @@
       padding: 46px clamp(18px, 5vw, 72px) 72px;
     }
 
+    .archive-heading {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .archive-eyebrow {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+    }
+
     .archive h2 {
-      margin: 0 0 20px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 4vw, 48px);
+      margin: 0;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 500;
       letter-spacing: 0;
     }
 
     .archive-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      display: block;
+      border-top: 1px solid var(--line);
     }
 
     .archive-card {
       display: grid;
-      gap: 10px;
-      min-height: 210px;
-      padding: 22px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: 0 18px 50px rgba(17, 24, 39, .06);
+      grid-template-columns: minmax(112px, .46fr) minmax(0, 1fr) minmax(132px, .36fr);
+      gap: clamp(16px, 4vw, 44px);
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+      transition: background .16s ease, padding .16s ease, border-color .16s ease;
     }
 
-    .archive-card strong {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 28px;
-      line-height: 1.1;
-      letter-spacing: 0;
+    .archive-card:hover {
+      margin-inline: -14px;
+      padding-inline: 14px;
+      background: rgba(255, 253, 248, .72);
+      border-color: #c8bda9;
     }
 
+    .archive-date,
     .archive-card em,
-    .archive-card span {
+    .archive-range,
+    .archive-issue-label {
       color: var(--muted);
       font-style: normal;
     }
 
-    .archive-kicker {
-      color: var(--red);
+    .archive-date {
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 13px;
+      font-weight: 400;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .archive-title-lockup {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .06em .18em;
+      color: var(--ink);
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .archive-title-lockup span {
+      color: inherit;
+      white-space: nowrap;
+    }
+
+    .archive-title-lockup .title-issue-code {
+      font-size: .78em;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    .archive-card em {
+      display: block;
+      margin-top: 8px;
+      max-width: 720px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .archive-range {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+    }
+
+    .archive-meta {
+      display: grid;
+      justify-items: end;
+      gap: 8px;
+      text-align: right;
+    }
+
+    .archive-issue-label {
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: .16em;
+    }
+
+    .archive-open {
+      color: #3f3a33;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      transition: color .16s ease, transform .16s ease;
+      white-space: nowrap;
+    }
+
+    .archive-card:hover .archive-open {
+      color: var(--ink);
+      transform: translateX(3px);
     }
 
     @media (max-width: 720px) {
@@ -196,6 +297,21 @@
       .enter {
         width: 100%;
       }
+
+      .archive-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .archive-card:hover {
+        margin-inline: 0;
+        padding-inline: 0;
+      }
+
+      .archive-meta {
+        justify-items: start;
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -206,7 +322,7 @@
         <span>远航 | KL Voyage</span>
         <span>2026-W22 · 2026-05-28</span>
       </div>
-      <h1 class="title-lockup"><span>远航 ·</span><span>客车产业周刊</span></h1>
+      <h1 class="title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span><span class="title-issue-code">2026-W22</span></h1>
       <div class="latest">
         <p>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</p>
         <a class="enter" href="issues/voyage-2026-W22.html">阅读本期</a>
@@ -217,15 +333,24 @@
   <div class="notice"><span>试刊样本，优先覆盖近两周，少量纳入本月代表性公开来源；不代表完整新闻覆盖。</span></div>
 
   <main>
-    <section class="archive" aria-label="往期归档">
-      <h2>往期归档</h2>
+    <section class="archive" aria-label="往期目录">
+      <div class="archive-heading">
+        <span class="archive-eyebrow">BACK ISSUES</span>
+        <h2>往期目录</h2>
+      </div>
       <div class="archive-grid">
         
         <a class="archive-card" href="issues/voyage-2026-W22.html">
-          <span class="archive-kicker">2026-W22 · 2026-05-28</span>
-          <strong>远航 · 客车产业周刊 2026-W22 试刊号</strong>
-          <em>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</em>
-          <span>2026-05-01 - 2026-05-27 · 9 items</span>
+          <time class="archive-date" datetime="2026-05-28">2026-05-28</time>
+          <span class="archive-main">
+            <strong class="archive-title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span><span class="title-issue-code">2026-W22</span></strong>
+            <em>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</em>
+            <span class="archive-range">2026-05-01 - 2026-05-27 · 9 items</span>
+          </span>
+          <span class="archive-meta">
+            <span class="archive-issue-label">ISSUE 22</span>
+            <span class="archive-open">打开本期 →</span>
+          </span>
         </a>
       </div>
     </section>
