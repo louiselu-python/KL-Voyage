@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>远航 | KL Voyage</title>
+  <style>
+    :root {
+      --paper: #f7f4ee;
+      --ink: #151515;
+      --muted: #68645d;
+      --line: #d9d2c5;
+      --card: #fffdf8;
+      --accent: #0f766e;
+      --red: #9f1239;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .cover {
+      min-height: 72vh;
+      display: grid;
+      align-items: end;
+      padding: 32px clamp(18px, 5vw, 72px);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(110deg, rgba(15, 118, 110, .14), transparent 46%),
+        linear-gradient(180deg, transparent 0, rgba(159, 18, 57, .08) 100%),
+        #f3efe6;
+    }
+
+    .cover-inner,
+    .archive {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 72px;
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 1120px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(52px, 7vw, 96px);
+      line-height: .9;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      text-wrap: balance;
+    }
+
+    .title-lockup {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .08em .18em;
+    }
+
+    .title-lockup span {
+      white-space: nowrap;
+    }
+
+    .latest {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink);
+    }
+
+    .latest p {
+      margin: 0;
+      max-width: 680px;
+      font-size: clamp(17px, 2.2vw, 24px);
+    }
+
+    .enter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .notice {
+      padding: 14px clamp(18px, 5vw, 72px);
+      color: #7f1d1d;
+      background: #fffaf0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .notice span {
+      display: block;
+      max-width: 1120px;
+      margin: 0 auto;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 46px clamp(18px, 5vw, 72px) 72px;
+    }
+
+    .archive h2 {
+      margin: 0 0 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: 0;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .archive-card {
+      display: grid;
+      gap: 10px;
+      min-height: 210px;
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 50px rgba(17, 24, 39, .06);
+    }
+
+    .archive-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .archive-card em,
+    .archive-card span {
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    .archive-kicker {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 720px) {
+      .cover {
+        min-height: 66vh;
+      }
+
+      .brand-row,
+      .latest {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .brand-row {
+        padding-bottom: 48px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 13vw, 56px);
+      }
+
+      .enter {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="cover">
+    <div class="cover-inner">
+      <div class="brand-row">
+        <span>远航 | KL Voyage</span>
+        <span>2026-W22 · 2026-05-28</span>
+      </div>
+      <h1 class="title-lockup"><span>远航 ·</span><span>客车产业周刊</span></h1>
+      <div class="latest">
+        <p>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</p>
+        <a class="enter" href="issues/voyage-2026-W22.html">阅读本期</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="notice"><span>试刊样本，优先覆盖近两周，少量纳入本月代表性公开来源；不代表完整新闻覆盖。</span></div>
+
+  <main>
+    <section class="archive" aria-label="往期归档">
+      <h2>往期归档</h2>
+      <div class="archive-grid">
+        
+        <a class="archive-card" href="issues/voyage-2026-W22.html">
+          <span class="archive-kicker">2026-W22 · 2026-05-28</span>
+          <strong>远航 · 客车产业周刊 2026-W22 试刊号</strong>
+          <em>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</em>
+          <span>2026-05-01 - 2026-05-27 · 9 items</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

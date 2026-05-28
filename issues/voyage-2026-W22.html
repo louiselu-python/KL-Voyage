@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>远航 · 客车产业周刊 2026-W22 试刊号 | KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</title>
+  <style>
+    :root {
+      --paper: #f7f4ee;
+      --ink: #171717;
+      --muted: #66645f;
+      --line: #d9d2c5;
+      --card: #fffdf8;
+      --accent: #0f766e;
+      --accent-2: #9f1239;
+      --deep: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .masthead {
+      min-height: 62vh;
+      display: grid;
+      align-items: end;
+      padding: 32px clamp(18px, 5vw, 72px);
+      background:
+        linear-gradient(90deg, rgba(15, 118, 110, .12) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(159, 18, 57, .10) 1px, transparent 1px),
+        #f3efe6;
+      background-size: 42px 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .masthead-inner {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .publication-mark {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 64px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 1120px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 92px);
+      line-height: .92;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      text-wrap: balance;
+    }
+
+    .title-lockup {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .08em .18em;
+    }
+
+    .title-lockup span {
+      white-space: nowrap;
+    }
+
+    .subtitle {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink);
+    }
+
+    .subtitle p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--deep);
+      font-size: clamp(16px, 2vw, 22px);
+    }
+
+    .issue-meta {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .notice {
+      padding: 14px clamp(18px, 5vw, 72px);
+      border-bottom: 1px solid var(--line);
+      background: #fffaf0;
+      color: #7f1d1d;
+      font-size: 14px;
+    }
+
+    .notice span,
+    .content-inner {
+      display: block;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px clamp(18px, 5vw, 72px);
+      background: rgba(247, 244, 238, .94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .filter-row {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    button {
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--deep);
+      padding: 7px 14px;
+      font: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    button.is-active {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: #fff;
+    }
+
+    main {
+      padding: 40px clamp(18px, 5vw, 72px) 72px;
+    }
+
+    .content-inner {
+      display: grid;
+      gap: 22px;
+    }
+
+    .news-card {
+      padding: clamp(20px, 3vw, 34px);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 50px rgba(17, 24, 39, .06);
+    }
+
+    .card-kicker,
+    .card-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-kicker span:first-child {
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(18px, 4vw, 44px);
+      margin-top: 18px;
+    }
+
+    h2,
+    h3 {
+      margin: 0 0 14px;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3vw, 40px);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    h3 {
+      font-size: clamp(20px, 2.5vw, 32px);
+      font-family: Georgia, "Times New Roman", serif;
+      color: #263238;
+    }
+
+    .summary {
+      margin: 0;
+      color: var(--deep);
+    }
+
+    .mode-switch {
+      display: inline-flex;
+      gap: 6px;
+      margin-top: 24px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f7f4ee;
+    }
+
+    .mode-switch button {
+      border: 0;
+      min-height: 30px;
+      padding: 4px 12px;
+    }
+
+    .summary-panel,
+    .body-panel {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .summary-panel p,
+    .body-panel p {
+      margin: 0;
+    }
+
+    .summary-panel p + p,
+    .body-panel p + p {
+      margin-top: 10px;
+    }
+
+    .panel-label {
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .summary-panel > p:not(.panel-label):not(.source-note) {
+      color: var(--deep);
+    }
+
+    .body-panel > p:not(.panel-label):not(.source-note) {
+      color: var(--deep);
+    }
+
+    .editor-note {
+      color: var(--muted);
+    }
+
+    .editor-note strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .source-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-footer {
+      justify-content: space-between;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .card-footer a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .masthead {
+        min-height: 56vh;
+      }
+
+      .publication-mark,
+      .subtitle {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .publication-mark {
+        padding-bottom: 42px;
+      }
+
+      .issue-meta {
+        text-align: left;
+        white-space: normal;
+      }
+
+      h1 {
+        font-size: clamp(42px, 12vw, 54px);
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-footer {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="publication-mark">
+        <span>远航 | KL Voyage</span>
+        <span>2026-W22</span>
+      </div>
+      <h1 class="title-lockup"><span>远航 ·</span><span>客车产业周刊</span><span>2026-W22</span><span>试刊号</span></h1>
+      <div class="subtitle">
+        <p>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</p>
+        <div class="issue-meta">
+          <div>2026-05-28</div>
+          <div>2026-05-01 - 2026-05-27</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="notice"><span>试刊样本，优先覆盖近两周，少量纳入本月代表性公开来源；不代表完整新闻覆盖。</span></div>
+
+  <nav class="toolbar" aria-label="区域筛选">
+    <div class="filter-row">
+      <button class="is-active" data-region="all" type="button">全部</button>
+<button data-region="xi_ou_qu" type="button">西欧区</button>
+<button data-region="dong_nan_fei_qu" type="button">东南非区</button>
+<button data-region="ya_tai_er_qu" type="button">亚太二区</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="content-inner">
+      
+        <article class="news-card" data-regions="xi_ou_qu">
+          <div class="card-kicker">
+            <span>01</span>
+            <span>2026-05-21</span>
+            <span>西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>EMT Palma 接收 BYD 与 Castrosua 电动公交新批次</h2>
+              <p class="summary summary-cn">西班牙帕尔马公交运营商 EMT Palma 接收 23 辆由 BYD 与 Castrosua 相关的电动公交。该批车辆延续当地城市公交零排放更新节奏，也显示欧洲城市车队更新仍以分批交付推进。</p>
+            </div>
+            <div>
+              <h3>EMT Palma adds a new batch of BYD-Castrosua electric buses</h3>
+              <p class="summary summary-en">EMT Palma in Spain has taken delivery of 23 electric buses linked to BYD and Castrosua. The update shows how zero-emission city bus renewal in Europe continues through staged fleet additions.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>西班牙帕尔马公交运营商 EMT Palma 接收 23 辆由 BYD 与 Castrosua 相关的电动公交。该批车辆延续当地城市公交零排放更新节奏，也显示欧洲城市车队更新仍以分批交付推进。</p>
+            <p lang="en">EMT Palma in Spain has taken delivery of 23 electric buses linked to BYD and Castrosua. The update shows how zero-emission city bus renewal in Europe continues through staged fleet additions.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻显示欧洲城市公交电动化仍在持续推进。</p>
+            <p class="source-note">来源：Sustainable Bus · 2026-05-21</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>西班牙帕尔马公交运营商 EMT Palma 接收 23 辆与 BYD、Castrosua 相关的电动公交，这是本期欧洲城市公交电动化样本之一。公开来源将该批车辆放在城市公交车队更新语境下，显示当地零排放公交并非一次性项目，而是通过分批交付持续推进。对读者而言，这条新闻的重点不在单一车辆型号，而在运营商、车辆供应方和车身制造生态共同参与城市公交更新。它也说明欧洲城市公交的公开新闻中，车队替换、车辆交付和本地化合作常常同时出现。放在本期样刊中，这条适合与德国、法国、瑞典等欧洲电动公交案例一起阅读，帮助观察城市公交零排放推进的连续性。</p>
+            <p lang="en">EMT Palma in Spain has received a new batch of 23 electric buses linked to BYD and Castrosua. The item is a useful example of how European city bus electrification is progressing through staged fleet renewal rather than a single one-off event. The public source places the delivery in the context of urban bus replacement, with the operator, vehicle supplier and body-building ecosystem all visible in the story. For this pilot issue, the value of the item is not only the number of buses, but also the way it shows continued zero-emission fleet updates in a European municipal transport setting. It pairs naturally with other European items in this issue, including Germany, France and Sweden, as a public signal of steady fleet transition.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>EMT Palma welcomes new batch of 23 electric buses by BYD and Castrosua</p>
+          </div>
+          <footer class="card-footer">
+            <span>Sustainable Bus</span>
+            <span>electric_bus / fleet_renewal</span>
+            <a href="https://www.sustainable-bus.com/electric-bus/emt-palma-byd-castrosua-23-buses/" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="xi_ou_qu">
+          <div class="card-kicker">
+            <span>02</span>
+            <span>2026-05-21</span>
+            <span>西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>博洛尼亚氢能公交投运，Solaris 订单进入落地阶段</h2>
+              <p class="summary summary-cn">意大利博洛尼亚的氢能公交开始投入运营，运营商 TPER 的公开信息与 Solaris 此前订单发布相互印证。该项目属于欧洲城市公交零排放技术路线中的氢燃料电池应用案例。</p>
+            </div>
+            <div>
+              <h3>Bologna launches hydrogen buses as Solaris order moves into service</h3>
+              <p class="summary summary-en">Hydrogen buses have entered service in Bologna, with TPER public information aligning with Solaris order background. The project is a European example of fuel-cell technology moving into urban bus operations.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>意大利博洛尼亚的氢能公交开始投入运营，运营商 TPER 的公开信息与 Solaris 此前订单发布相互印证。该项目属于欧洲城市公交零排放技术路线中的氢燃料电池应用案例。</p>
+            <p lang="en">Hydrogen buses have entered service in Bologna, with TPER public information aligning with Solaris order background. The project is a European example of fuel-cell technology moving into urban bus operations.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻适合关注氢燃料电池公交和城市车队更新。</p>
+            <p class="source-note">来源：TPER · 2026-05-21</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>意大利博洛尼亚的氢能公交开始进入实际运营阶段。TPER 的公开页面说明氢能公交在当地亮相，Solaris 此前的官方信息则提供 127 辆氢能公交订单背景，两者共同构成这条新闻的公开来源链。与纯电公交相比，氢燃料电池公交在基础设施、运营组织和车辆采购节奏上都有不同观察点。本条适合放在“燃料电池公交”和“车队更新”两个维度下阅读：一方面，它体现欧洲城市继续探索零排放公交技术路线；另一方面，它也说明较大规模订单需要通过后续投运节点逐步落地。本期将其作为技术路线多样化样本呈现，不延伸为市场预测。 这类条目后续还需要继续关注公开投运信息，因为订单规模、车辆到位和实际运营往往分阶段呈现。</p>
+            <p lang="en">Hydrogen buses have entered service in Bologna, with TPER providing the current operational update and Solaris offering the earlier order background for 127 hydrogen buses. Together, the two public sources form a clear source chain for this item. Compared with battery-electric buses, fuel-cell buses bring different questions around infrastructure, operation and deployment timing. This story is therefore relevant both as a fuel-cell bus update and as a fleet renewal case. It shows that European cities continue to explore more than one zero-emission technology path, while larger orders still need to be followed through actual service milestones. In this issue, the item is presented as a public example of technology-route diversity, not as a market forecast. Future public updates on service deployment will be useful, because order size, vehicle arrival and daily operation are often reported in separate stages.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>Hydrogen buses make their Bologna debut</p>
+          </div>
+          <footer class="card-footer">
+            <span>TPER</span>
+            <span>fuel_cell / fleet_renewal</span>
+            <a href="https://www.tper.it/hydrogen-buses-make-their-Bologna-debut" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="xi_ou_qu">
+          <div class="card-kicker">
+            <span>03</span>
+            <span>2026-05-15</span>
+            <span>西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>欧投行向 Hamburg vhh.mobility 提供电动公交融资支持</h2>
+              <p class="summary summary-cn">欧洲投资银行宣布向 Hamburg 的 vhh.mobility 提供融资，用于支持更清洁的公共交通。公开信息显示，资金将服务于电动公交和相关充电基础设施投入。</p>
+            </div>
+            <div>
+              <h3>EIB backs Hamburg vhh.mobility electric bus transition</h3>
+              <p class="summary summary-en">The European Investment Bank announced financing support for vhh.mobility in Hamburg. Public information indicates the funding will support electric buses and related charging infrastructure.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>欧洲投资银行宣布向 Hamburg 的 vhh.mobility 提供融资，用于支持更清洁的公共交通。公开信息显示，资金将服务于电动公交和相关充电基础设施投入。</p>
+            <p lang="en">The European Investment Bank announced financing support for vhh.mobility in Hamburg. Public information indicates the funding will support electric buses and related charging infrastructure.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻反映公共机构对零排放公交和基础设施的持续投入。</p>
+            <p class="source-note">来源：European Investment Bank · 2026-05-15</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>欧洲投资银行宣布向 Hamburg 的 vhh.mobility 提供 3,400 万欧元贷款，用于支持更清洁的公共交通。公开信息显示，这一融资与电动公交及相关充电基础设施投入有关，因此本条更适合从“资金支持基础设施”和“公共交通政策”两个角度阅读。公交电动化不仅是车辆采购问题，也依赖场站、电力和充电系统等配套投入。EIB 作为公共金融机构参与其中，说明欧洲部分地区的零排放公交推进正在通过公共融资工具和运营商投资相结合的方式展开。对周刊读者来说，这类消息有助于观察项目落地背后的资金和基础设施条件。 与单条车辆交付相比，融资新闻更能反映公共交通系统为长期电动化准备资源的过程。</p>
+            <p lang="en">The European Investment Bank announced a EUR34 million loan to vhh.mobility in Hamburg to support cleaner public transport. The public release links the financing to electric buses and related charging infrastructure, making this item more than a simple fleet update. It is also a public transport finance and infrastructure story. Bus electrification depends on depots, power supply and charging systems as well as vehicles. The presence of a public financial institution shows how some European zero-emission bus projects are being advanced through a combination of operator investment and public financing tools. For readers, the item is useful because it points to the funding and infrastructure conditions behind operational electrification. Compared with a single vehicle delivery, this type of financing news better reflects how public transport systems prepare resources for longer-term electrification.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>Germany: EIB backs cleaner public transport in Hamburg with EUR34 million loan to vhh.mobility</p>
+          </div>
+          <footer class="card-footer">
+            <span>European Investment Bank</span>
+            <span>charging_infrastructure / public_transport_policy</span>
+            <a href="https://www.eib.org/en/press/all/2026-190-germany-eib-backs-cleaner-public-transport-in-hamburg-with-eur34-million-loan-to-vhh-mobility" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="xi_ou_qu">
+          <div class="card-kicker">
+            <span>04</span>
+            <span>2026-05-11</span>
+            <span>西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>BVG 推进外包公交线路电动化运营要求</h2>
+              <p class="summary summary-cn">柏林公交运营商 BVG 在公开新闻稿中说明，将把电动化运营要求纳入由承包方运营的公交线路。该事项体现城市公交运营合同与零排放要求之间的联动。</p>
+            </div>
+            <div>
+              <h3>BVG extends electric operation requirements to contracted bus routes</h3>
+              <p class="summary summary-en">Berlin operator BVG states that electric operation requirements will also apply to contracted bus routes. The item shows how public transport contracts are being linked with zero-emission fleet requirements.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>柏林公交运营商 BVG 在公开新闻稿中说明，将把电动化运营要求纳入由承包方运营的公交线路。该事项体现城市公交运营合同与零排放要求之间的联动。</p>
+            <p lang="en">Berlin operator BVG states that electric operation requirements will also apply to contracted bus routes. The item shows how public transport contracts are being linked with zero-emission fleet requirements.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻显示运营合同安排也在纳入公交电动化要求。</p>
+            <p class="source-note">来源：BVG · 2026-05-11</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>柏林公交运营商 BVG 的公开新闻稿说明，承包方运营的公交线路也将纳入电动化运营规划。该条新闻的重点在于运营合同与零排放要求之间的连接：城市公交电动化不仅发生在运营商自有线路，也会延伸到外包或承包运营安排中。electrive 的英文报道提供了交叉验证，帮助非德语读者理解该事项。对行业读者来说，这类新闻提示，公共交通运营规则、合同期限和车辆技术要求正在一起变化，未来外包线路也可能被纳入统一的低排放或零排放目标。本期将其归入运营服务和公共交通政策观察。 这种变化也会影响后续车辆配置、运营排班和承包方履约要求，因此适合作为制度层面的公开进展记录。</p>
+            <p lang="en">BVG states in a public release that electric operation planning will also apply to bus routes operated by contractors. The key point is the link between operating contracts and zero-emission requirements. Electrification is not limited to directly operated routes; it can also be extended into outsourced or contracted service arrangements. The electrive article provides an accessible English cross-check for non-German readers. For this weekly, the item shows that public transport operating rules, contract design and vehicle technology requirements are increasingly connected as cities move toward cleaner bus services. It is therefore treated as both an operations-service update and a public transport policy signal. Such changes may also shape future vehicle specifications, operating schedules and contractor obligations, so the item is useful as a public record of institutional progress.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>BVG plant auch auf Buslinien von Auftragnehmern elektrischen Betrieb</p>
+          </div>
+          <footer class="card-footer">
+            <span>BVG</span>
+            <span>electric_bus / operations_service / public_transport_policy</span>
+            <a href="https://www.bvg.de/de/unternehmen/medienportal/pressemitteilungen/20260511-pm-subunternehmen-e-busse" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="xi_ou_qu">
+          <div class="card-kicker">
+            <span>05</span>
+            <span>2026-05-21</span>
+            <span>西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>IVECO BUS 与 Dalkia 入选 Limoges 公交电动化项目</h2>
+              <p class="summary summary-cn">IVECO BUS 官方 PDF 显示，其与 Dalkia Electrotechnics 入选法国 Limoges Métropole 交通网络电动化相关标段。该项目覆盖车辆与配套电动化内容，适合作为法国城市公交转型案例观察。</p>
+            </div>
+            <div>
+              <h3>IVECO BUS and Dalkia selected for Limoges bus electrification</h3>
+              <p class="summary summary-en">An official IVECO BUS PDF states that IVECO BUS and Dalkia Electrotechnics were selected for electrification lots in the Limoges Métropole transport network. The project links vehicle renewal with supporting electrification work.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>IVECO BUS 官方 PDF 显示，其与 Dalkia Electrotechnics 入选法国 Limoges Métropole 交通网络电动化相关标段。该项目覆盖车辆与配套电动化内容，适合作为法国城市公交转型案例观察。</p>
+            <p lang="en">An official IVECO BUS PDF states that IVECO BUS and Dalkia Electrotechnics were selected for electrification lots in the Limoges Métropole transport network. The project links vehicle renewal with supporting electrification work.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻适合关注公交电动化与配套基础设施建设。</p>
+            <p class="source-note">来源：IVECO BUS · 2026-05-21</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>IVECO BUS 的官方 PDF 显示，其与 Dalkia Electrotechnics 入选法国 Limoges Métropole 交通网络电动化相关标段。该项目同时涉及车辆和电动化配套，因此不仅是单纯的车辆交付新闻，也反映公交电动化项目通常需要车辆、场站、电气工程和运营网络协同推进。Limoges 案例适合与其他欧洲城市公交转型新闻放在一起观察：一方面，制造商继续参与城市公交车队更新；另一方面，基础设施和电气化服务提供方也成为项目落地的重要组成部分。本期将其作为车辆更新与配套工程并行推进的公开案例。 对后续阅读而言，值得区分车辆供应、基础设施建设和网络运营三个层次，而不是把它们合并为单一采购动作。</p>
+            <p lang="en">An official IVECO BUS PDF states that IVECO BUS and Dalkia Electrotechnics were selected for electrification-related lots in the Limoges Métropole transport network. The project connects vehicles with supporting electrification work, so it should not be read only as a vehicle delivery item. It also reflects the coordination needed among bus manufacturers, electrical systems, depots and transport networks. In the context of this pilot issue, Limoges is a useful European case showing that fleet renewal and infrastructure preparation often move together when cities electrify bus operations. The item is therefore positioned as a combined vehicle and supporting-infrastructure update. For later reading, it is useful to distinguish among vehicle supply, infrastructure work and network operation, rather than treating them as one simple procurement action.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>IVECO BUS awarded contracts for electrification of Limoges Métropole transport network in France</p>
+          </div>
+          <footer class="card-footer">
+            <span>IVECO BUS</span>
+            <span>electric_bus / charging_infrastructure / fleet_renewal</span>
+            <a href="https://www.ivecogroup.com/-/media/IvecoBus/International/news/2026/5/IVECO-BUS-awarded-contracts-for-electrification-of-Limoges-Mtropole-transport-network-in-France1152026_fileForDownload.pdf?rev=c0d5576736634bffbe3d172fe1a0e679" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="xi_ou_qu">
+          <div class="card-kicker">
+            <span>06</span>
+            <span>2026-05-20</span>
+            <span>西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>Scania 与 VR Sweden 签署 91 辆电池电动公交协议</h2>
+              <p class="summary summary-cn">Scania 官方信息显示，其与 VR Sweden 签署 91 辆电池电动公交协议。该订单将服务瑞典公共交通车队更新，反映北欧市场继续推进公交零排放替换。</p>
+            </div>
+            <div>
+              <h3>Scania and VR Sweden sign agreement for 91 battery-electric buses</h3>
+              <p class="summary summary-en">Scania announced an agreement with VR Sweden for 91 battery-electric buses. The order supports Swedish public transport fleet renewal and reflects continued zero-emission replacement in the Nordic market.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>Scania 官方信息显示，其与 VR Sweden 签署 91 辆电池电动公交协议。该订单将服务瑞典公共交通车队更新，反映北欧市场继续推进公交零排放替换。</p>
+            <p lang="en">Scania announced an agreement with VR Sweden for 91 battery-electric buses. The order supports Swedish public transport fleet renewal and reflects continued zero-emission replacement in the Nordic market.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻反映运营商更新车队的公开趋势。</p>
+            <p class="source-note">来源：Scania · 2026-05-20</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>Scania 官方信息显示，其与 VR Sweden 签署 91 辆电池电动公交协议。该条新闻属于较清晰的北欧车队更新案例：来源明确、车辆类型明确，且数量足以体现运营层面的持续替换。对本期周刊而言，它与西班牙、法国等欧洲电动公交新闻形成呼应，说明欧洲不同区域的公交电动化正在通过运营商订单、制造商交付和公共交通网络更新逐步推进。该条不加入市场判断，只作为公开车队更新信号呈现。与基础设施类新闻相比，它更直接体现车辆侧的采购与替换节奏，适合归入电动公交和车队更新类别。 由于来源来自制造商官方发布，正文仅保留订单和车型口径，不延伸到未公开的运营效果或区域需求判断。</p>
+            <p lang="en">Scania announced an agreement with VR Sweden for 91 battery-electric buses. This is a clear Nordic fleet renewal item: the source is official, the vehicle type is explicit and the order size is meaningful for public transport operations. In this pilot issue, it sits alongside other European electric bus items from Spain and France, showing that bus electrification is being advanced through operator orders, manufacturer supply and network-level fleet updates. The item is presented as a public fleet renewal signal, without adding internal market judgement or commercial recommendations. Compared with infrastructure-focused news, it more directly reflects vehicle procurement and replacement timing. Because the source is an official manufacturer release, the body keeps to the order and vehicle-scope information and avoids extending into unpublished operational effects or regional demand assumptions.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>Scania and VR Sweden sign an agreement for 91 battery-electric buses</p>
+          </div>
+          <footer class="card-footer">
+            <span>Scania</span>
+            <span>electric_bus / fleet_renewal</span>
+            <a href="https://www.scania.com/group/en/home/newsroom/press-releases/press-release-detail-page.html/5034924-scania-and-vr-sweden-sign-an-agreement-for-91-battery-electric-buses" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="dong_nan_fei_qu">
+          <div class="card-kicker">
+            <span>07</span>
+            <span>2026-05-04</span>
+            <span>东南非区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>乌干达 Kampala 启动 E-Bus Xpress 电动公交服务</h2>
+              <p class="summary summary-cn">乌干达政府信息门户发布 E-Bus Xpress 相关信息，本地媒体的可核对日期为 2026-05-04，二者交叉佐证 Kampala 正在推进电动公交服务。该项目与本地制造和城市公共交通改善相关，适合纳入非洲地区公开资讯观察。</p>
+            </div>
+            <div>
+              <h3>Kampala launches E-Bus Xpress electric bus service</h3>
+              <p class="summary summary-en">Uganda Info Hub reports on E-Bus Xpress, with a local media cross-check dated 2026-05-04 supporting the public timeline for Kampala&#039;s electric bus service. The project connects local manufacturing with urban public transport improvement and is relevant for African market monitoring.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>乌干达政府信息门户发布 E-Bus Xpress 相关信息，本地媒体的可核对日期为 2026-05-04，二者交叉佐证 Kampala 正在推进电动公交服务。该项目与本地制造和城市公共交通改善相关，适合纳入非洲地区公开资讯观察。</p>
+            <p lang="en">Uganda Info Hub reports on E-Bus Xpress, with a local media cross-check dated 2026-05-04 supporting the public timeline for Kampala&#039;s electric bus service. The project connects local manufacturing with urban public transport improvement and is relevant for African market monitoring.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻反映公共交通项目中电动公交应用的公开进展。</p>
+            <p class="source-note">来源：Uganda Info Hub · 2026-05-04</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>乌干达政府信息门户发布 E-Bus Xpress 相关信息，本地媒体 Pulse Uganda 的 2026-05-04 报道则为时间点提供交叉验证。该项目与 Kampala 城市公共交通改善、本地制造背景和电动公交应用相关，是本期少数非洲区域样本之一。正文采用政府信息页与本地媒体共同佐证的方式整理，避免只依赖单一线索。对读者而言，这条新闻的价值在于观察电动公交在东非城市交通中的公开推进，而不是对项目效果作出判断。它也提醒读者，非洲地区电动公交新闻往往同时涉及城市交通、公共政策和本地制造叙事，需要在公开来源基础上审慎呈现。</p>
+            <p lang="en">Uganda Info Hub published information on E-Bus Xpress, while a Pulse Uganda report dated 2026-05-04 provides a public cross-check for the timeline. The project is connected with urban public transport improvement in Kampala, local manufacturing background and the use of electric buses. It is one of the few African-region examples in this pilot issue. The text is based on a combination of the government information page and local media confirmation, rather than a single seed source. Its value is to show public progress in electric bus adoption in an East African city, not to judge project performance. The item is handled cautiously because it combines transport policy, local manufacturing and electric bus deployment themes. It also provides geographic balance for the issue by adding an African public transport example alongside the European and Asia-Pacific items.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>E-Bus Xpress transforms urban mobility in Uganda</p>
+          </div>
+          <footer class="card-footer">
+            <span>Uganda Info Hub</span>
+            <span>electric_bus / public_transport_policy / operations_service</span>
+            <a href="https://ugandainfohub.go.ug/%F0%9D%97%98-%F0%9D%97%95%F0%9D%98%82%F0%9D%98%80-%F0%9D%97%AB%F0%9D%97%BD%F0%9D%97%BF%F0%9D%97%B2%F0%9D%98%80%F0%9D%98%80-%F0%9D%97%A7%F0%9D%97%BF%F0%9D%97%AE%F0%9D%97%BB%F0%9D%98%80%F0%9D%97%B3/" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="xi_ou_qu">
+          <div class="card-kicker">
+            <span>08</span>
+            <span>2026-05-20</span>
+            <span>西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>Kinetic 在维多利亚推进 Preston 零排放公交充电场站</h2>
+              <p class="summary summary-cn">Kinetic 官方新闻稿显示，其在澳大利亚维多利亚推进 Preston 零排放公交充电场站。该案例突出公交电动化从车辆采购延伸到场站、充电和运营准备。</p>
+            </div>
+            <div>
+              <h3>Kinetic advances Preston zero-emission bus charging depot in Victoria</h3>
+              <p class="summary summary-en">Kinetic says it is advancing the Preston zero-emission bus charging depot in Victoria, Australia. The case highlights how bus electrification extends from vehicles to depots, charging and operational readiness.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>Kinetic 官方新闻稿显示，其在澳大利亚维多利亚推进 Preston 零排放公交充电场站。该案例突出公交电动化从车辆采购延伸到场站、充电和运营准备。</p>
+            <p lang="en">Kinetic says it is advancing the Preston zero-emission bus charging depot in Victoria, Australia. The case highlights how bus electrification extends from vehicles to depots, charging and operational readiness.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻适合关注公交电动化与充电基础设施配套。</p>
+            <p class="source-note">来源：Kinetic · 2026-05-20</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>Kinetic 的官方新闻稿显示，其在澳大利亚维多利亚推进 Preston 零排放公交充电场站，JET Charge 的公开案例页提供了基础设施参与方背景。该条新闻强调，公交电动化需要从车辆延伸到场站、充电能力和运营准备。与车辆交付类新闻相比，充电场站更能体现零排放公交的系统性投入。对区域阅读来说，澳大利亚在公司区域维度表中按西欧区口径处理，本条仍按该工程口径展示，不代表地理洲别分类。它适合与 EIB 融资、Limoges 电动化标段等基础设施相关条目一起阅读。 这一写法也提醒读者，本项目的区域标签服务公司业务维度，页面展示应与国家维度表保持一致。</p>
+            <p lang="en">Kinetic reports progress on the Preston zero-emission bus charging depot in Victoria, Australia, with JET Charge providing additional public background on the infrastructure side. The item highlights that bus electrification extends beyond vehicle procurement into depots, charging capacity and operational readiness. Compared with a simple delivery story, a charging depot shows the system investment required to run zero-emission bus fleets. For regional tagging, Australia follows the company region table used by the project and is displayed under that business-region logic rather than geographic continent logic. The item pairs well with the EIB and Limoges stories as an infrastructure-related electrification update. This wording also reminds readers that the project’s region tags serve the company business-region model, so page presentation should remain aligned with the country dimension table.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>Growing our zero-emission fleet with Victoria&#039;s largest charging depot</p>
+          </div>
+          <footer class="card-footer">
+            <span>Kinetic</span>
+            <span>charging_infrastructure / electric_bus</span>
+            <a href="https://wearekinetic.com/newsroom/growing-our-zero-emission-fleet-with-victorias-largest-charging-depot" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+
+        <article class="news-card" data-regions="ya_tai_er_qu xi_ou_qu">
+          <div class="card-kicker">
+            <span>09</span>
+            <span>2026-05-16</span>
+            <span>亚太二区 · 西欧区</span>
+          </div>
+          <div class="card-grid">
+            <div>
+              <h2>VinFast 电动公交以欧洲发布和越南运营规模形成双重看点</h2>
+              <p class="summary summary-cn">Sustainable Bus 在 2026-05-16 的跟进报道中关注 VinBus 在越南的电动公交运营规模，并提到 VinFast 面向欧洲市场的布局。VinFast 官方 2025 年欧洲发布信息仅作为背景，不作为本期主来源。</p>
+            </div>
+            <div>
+              <h3>VinFast electric buses draw attention through Europe launch and Vietnam operations</h3>
+              <p class="summary summary-en">A 2026-05-16 Sustainable Bus follow-up highlights VinBus electric bus operations in Vietnam and VinFast&#039;s European market ambitions. VinFast&#039;s 2025 official Europe announcement is treated as background, not the main source for this issue.</p>
+            </div>
+          </div>
+          
+          <div class="mode-switch" aria-label="速读和正文切换">
+            <button class="is-active" data-mode="summary" type="button">速读</button>
+            <button data-mode="body" type="button">正文</button>
+          </div>
+          <div class="summary-panel">
+            <p class="panel-label">本条速读</p>
+            <p>Sustainable Bus 在 2026-05-16 的跟进报道中关注 VinBus 在越南的电动公交运营规模，并提到 VinFast 面向欧洲市场的布局。VinFast 官方 2025 年欧洲发布信息仅作为背景，不作为本期主来源。</p>
+            <p lang="en">A 2026-05-16 Sustainable Bus follow-up highlights VinBus electric bus operations in Vietnam and VinFast&#039;s European market ambitions. VinFast&#039;s 2025 official Europe announcement is treated as background, not the main source for this issue.</p>
+            <p class="editor-note"><strong>阅读提示：</strong>该新闻显示电动公交产品发布与海外市场展示仍在持续推进。</p>
+            <p class="source-note">来源：Sustainable Bus · 2026-05-16</p>
+          </div>
+          
+          <div class="body-panel" hidden>
+            <p class="panel-label">正文</p>
+            <p>Sustainable Bus 在 2026-05-16 的跟进报道中关注 VinBus 在越南的电动公交运营规模，并提到 VinFast 面向欧洲市场的布局。VinFast 官方 2025 年欧洲发布信息在本条中仅作为背景，不作为本期主来源。该新闻横跨越南和欧洲市场展示两个公开维度，因此保留越南和比利时两个国家标签，以及亚太二区和西欧区两个区域标签。对试刊而言，它提供了一个制造商海外展示与本土运营规模并置的样本，但不加入内部机会判断。读者可将其作为产品展示、市场活动和城市电动公交运营规模之间关联的公开观察。 该条目尤其适合作为跨区域新闻处理样本，因为一个新闻卡片同时涉及运营规模、制造商品牌展示和欧洲展会语境。</p>
+            <p lang="en">A 2026-05-16 Sustainable Bus follow-up discusses VinBus electric bus operations in Vietnam and VinFast’s European market ambitions. VinFast’s official 2025 Europe announcement is treated only as background, not as the main source for this issue. The item spans two public dimensions: electric bus operations in Vietnam and market exposure in Europe. It therefore keeps both Vietnam and Belgium in the country tags, and both Asia-Pacific Area 2 and Western Europe in the region tags according to the project’s company region table. It is presented as a public manufacturer and operations signal, without internal opportunity judgement. Readers can treat it as a public link between product exposure and deployed urban electric bus operations. The item is also a useful cross-region handling sample, because one news card touches fleet scale, manufacturer exposure and the European exhibition context at the same time.</p>
+            <p class="source-note">基于 source_url 与已记录的公开交叉来源整理，不复制原文。</p>
+            <p class="source-note"><strong>来源标题：</strong>VinBus has 2,000 e-buses in operation in Vietnam. And VinFast is targeting Europe</p>
+          </div>
+          <footer class="card-footer">
+            <span>Sustainable Bus</span>
+            <span>electric_bus / market_event / manufacturing_supply</span>
+            <a href="https://www.sustainable-bus.com/electric-bus/vinbus-2-000-electric-buses-vietnam-vinfast-europe/" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+          </footer>
+        </article>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll(".filter-row button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".filter-row button").forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        const region = button.dataset.region;
+        document.querySelectorAll(".news-card").forEach((card) => {
+          const match = region === "all" || card.dataset.regions.split(" ").includes(region);
+          card.hidden = !match;
+        });
+      });
+    });
+
+    document.querySelectorAll(".news-card").forEach((card) => {
+      const summary = card.querySelector(".summary-panel");
+      const body = card.querySelector(".body-panel");
+      card.querySelectorAll(".mode-switch button").forEach((button) => {
+        button.addEventListener("click", () => {
+          card.querySelectorAll(".mode-switch button").forEach((item) => item.classList.remove("is-active"));
+          button.classList.add("is-active");
+          const isBody = button.dataset.mode === "body";
+          summary.hidden = isBody;
+          body.hidden = !isBody;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
