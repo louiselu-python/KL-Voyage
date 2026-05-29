@@ -11,9 +11,13 @@
       --muted: #66645f;
       --line: #d9d2c5;
       --card: #fffdf8;
-      --accent: #0f766e;
+      --accent: #5f574d;
       --accent-2: #9f1239;
       --deep: #111827;
+      --font-serif-cn: "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", "Songti SC", "STSong", SimSun, serif;
+      --font-serif-latin: Georgia, "Times New Roman", serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     }
 
     * {
@@ -24,7 +28,7 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--font-sans);
       line-height: 1.65;
     }
 
@@ -39,7 +43,7 @@
       align-items: end;
       padding: 32px clamp(18px, 5vw, 72px);
       background:
-        linear-gradient(90deg, rgba(15, 118, 110, .12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(104, 83, 61, .11) 1px, transparent 1px),
         linear-gradient(180deg, rgba(159, 18, 57, .10) 1px, transparent 1px),
         #f3efe6;
       background-size: 42px 42px;
@@ -63,10 +67,17 @@
       text-transform: uppercase;
     }
 
+    .publication-mark span:last-child {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .1em;
+      white-space: nowrap;
+    }
+
     h1 {
       max-width: 1120px;
       margin: 0;
-      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
+      font-family: var(--font-serif-cn);
       font-size: clamp(42px, 6vw, 92px);
       line-height: .98;
       letter-spacing: 0;
@@ -86,24 +97,7 @@
     }
 
     .title-cn-part {
-      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
-    }
-
-    .title-issue-code {
-      align-self: baseline;
-      font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
-      font-size: .76em;
-      font-weight: 600;
-      line-height: 1;
-      letter-spacing: -.01em;
-      white-space: nowrap;
-    }
-
-    .title-cn-suffix {
-      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, serif;
-      font-size: .86em;
-      font-weight: 400;
-      white-space: nowrap;
+      font-family: var(--font-serif-cn);
     }
 
     .subtitle {
@@ -125,7 +119,9 @@
 
     .issue-meta {
       color: var(--muted);
+      font-family: var(--font-mono);
       font-size: 13px;
+      letter-spacing: .06em;
       text-align: right;
       white-space: nowrap;
     }
@@ -174,11 +170,30 @@
       font: inherit;
       cursor: pointer;
       white-space: nowrap;
+      transition: transform .14s ease, border-color .14s ease, background .14s ease, color .14s ease, box-shadow .14s ease;
+    }
+
+    button:hover {
+      border-color: #b9ad9b;
+      background: rgba(243, 239, 230, .58);
+      color: #3f3a33;
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(.5px) scale(.99);
+      box-shadow: inset 0 1px 4px rgba(17, 24, 39, .12);
     }
 
     button.is-active {
       background: var(--deep);
       border-color: var(--deep);
+      color: #fff;
+    }
+
+    button.is-active:hover {
+      background: #2a2622;
+      border-color: #2a2622;
       color: #fff;
     }
 
@@ -229,12 +244,12 @@
 
     h2 {
       font-size: clamp(24px, 3vw, 40px);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--font-serif-latin);
     }
 
     h3 {
       font-size: clamp(20px, 2.5vw, 32px);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--font-serif-latin);
       color: #263238;
     }
 
@@ -314,8 +329,21 @@
     }
 
     .card-footer a {
-      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent-2);
       font-weight: 700;
+      transition: color .14s ease, transform .14s ease;
+      white-space: nowrap;
+    }
+
+    .card-footer a:hover {
+      color: #7f1d1d;
+      transform: translateX(2px);
+    }
+
+    .card-footer a:active {
+      transform: translateX(2px) translateY(.5px);
     }
 
     .feedback-block {
@@ -443,7 +471,7 @@
         <span>远航 | KL Voyage</span>
         <span>2026-W22</span>
       </div>
-      <h1 class="title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span><span class="title-issue-code">2026-W22</span></h1>
+      <h1 class="title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span></h1>
       <div class="subtitle">
         <p>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</p>
         <div class="issue-meta">
@@ -518,7 +546,7 @@
           <footer class="card-footer">
             <span>Sustainable Bus</span>
             <span>electric_bus / fleet_renewal</span>
-            <a href="https://www.sustainable-bus.com/electric-bus/emt-palma-byd-castrosua-23-buses/" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://www.sustainable-bus.com/electric-bus/emt-palma-byd-castrosua-23-buses/" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -572,7 +600,7 @@
           <footer class="card-footer">
             <span>TPER</span>
             <span>fuel_cell / fleet_renewal</span>
-            <a href="https://www.tper.it/hydrogen-buses-make-their-Bologna-debut" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://www.tper.it/hydrogen-buses-make-their-Bologna-debut" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -626,7 +654,7 @@
           <footer class="card-footer">
             <span>European Investment Bank</span>
             <span>charging_infrastructure / public_transport_policy</span>
-            <a href="https://www.eib.org/en/press/all/2026-190-germany-eib-backs-cleaner-public-transport-in-hamburg-with-eur34-million-loan-to-vhh-mobility" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://www.eib.org/en/press/all/2026-190-germany-eib-backs-cleaner-public-transport-in-hamburg-with-eur34-million-loan-to-vhh-mobility" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -680,7 +708,7 @@
           <footer class="card-footer">
             <span>BVG</span>
             <span>electric_bus / operations_service / public_transport_policy</span>
-            <a href="https://www.bvg.de/de/unternehmen/medienportal/pressemitteilungen/20260511-pm-subunternehmen-e-busse" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://www.bvg.de/de/unternehmen/medienportal/pressemitteilungen/20260511-pm-subunternehmen-e-busse" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -734,7 +762,7 @@
           <footer class="card-footer">
             <span>IVECO BUS</span>
             <span>electric_bus / charging_infrastructure / fleet_renewal</span>
-            <a href="https://www.ivecogroup.com/-/media/IvecoBus/International/news/2026/5/IVECO-BUS-awarded-contracts-for-electrification-of-Limoges-Mtropole-transport-network-in-France1152026_fileForDownload.pdf?rev=c0d5576736634bffbe3d172fe1a0e679" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://www.ivecogroup.com/-/media/IvecoBus/International/news/2026/5/IVECO-BUS-awarded-contracts-for-electrification-of-Limoges-Mtropole-transport-network-in-France1152026_fileForDownload.pdf?rev=c0d5576736634bffbe3d172fe1a0e679" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -788,7 +816,7 @@
           <footer class="card-footer">
             <span>Scania</span>
             <span>electric_bus / fleet_renewal</span>
-            <a href="https://www.scania.com/group/en/home/newsroom/press-releases/press-release-detail-page.html/5034924-scania-and-vr-sweden-sign-an-agreement-for-91-battery-electric-buses" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://www.scania.com/group/en/home/newsroom/press-releases/press-release-detail-page.html/5034924-scania-and-vr-sweden-sign-an-agreement-for-91-battery-electric-buses" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -842,7 +870,7 @@
           <footer class="card-footer">
             <span>Uganda Info Hub</span>
             <span>electric_bus / public_transport_policy / operations_service</span>
-            <a href="https://ugandainfohub.go.ug/%F0%9D%97%98-%F0%9D%97%95%F0%9D%98%82%F0%9D%98%80-%F0%9D%97%AB%F0%9D%97%BD%F0%9D%97%BF%F0%9D%97%B2%F0%9D%98%80%F0%9D%98%80-%F0%9D%97%A7%F0%9D%97%BF%F0%9D%97%AE%F0%9D%97%BB%F0%9D%98%80%F0%9D%97%B3/" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://ugandainfohub.go.ug/%F0%9D%97%98-%F0%9D%97%95%F0%9D%98%82%F0%9D%98%80-%F0%9D%97%AB%F0%9D%97%BD%F0%9D%97%BF%F0%9D%97%B2%F0%9D%98%80%F0%9D%98%80-%F0%9D%97%A7%F0%9D%97%BF%F0%9D%97%AE%F0%9D%97%BB%F0%9D%98%80%F0%9D%97%B3/" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -896,7 +924,7 @@
           <footer class="card-footer">
             <span>Kinetic</span>
             <span>charging_infrastructure / electric_bus</span>
-            <a href="https://wearekinetic.com/newsroom/growing-our-zero-emission-fleet-with-victorias-largest-charging-depot" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://wearekinetic.com/newsroom/growing-our-zero-emission-fleet-with-victorias-largest-charging-depot" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
 
@@ -950,7 +978,7 @@
           <footer class="card-footer">
             <span>Sustainable Bus</span>
             <span>electric_bus / market_event / manufacturing_supply</span>
-            <a href="https://www.sustainable-bus.com/electric-bus/vinbus-2-000-electric-buses-vietnam-vinfast-europe/" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+            <a href="https://www.sustainable-bus.com/electric-bus/vinbus-2-000-electric-buses-vietnam-vinfast-europe/" target="_blank" rel="noopener noreferrer">原始链接 / Source →</a>
           </footer>
         </article>
       
