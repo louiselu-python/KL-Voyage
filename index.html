@@ -7,6 +7,7 @@
   <style>
     :root {
       --paper: #f7f4ee;
+      --grid-line: rgba(132, 124, 112, .028);
       --ink: #151515;
       --muted: #68645d;
       --line: #d9d2c5;
@@ -25,7 +26,11 @@
 
     body {
       margin: 0;
-      background: var(--paper);
+      background:
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, var(--grid-line) 1px, transparent 1px),
+        var(--paper);
+      background-size: 42px 42px;
       color: var(--ink);
       font-family: var(--font-sans);
       line-height: 1.6;
@@ -37,15 +42,18 @@
     }
 
     .cover {
-      min-height: 72vh;
+      min-height: 64vh;
       display: grid;
       align-items: end;
       padding: 32px clamp(18px, 5vw, 72px);
       border-bottom: 1px solid var(--line);
       background:
-        linear-gradient(110deg, rgba(104, 83, 61, .12), transparent 46%),
+        linear-gradient(110deg, rgba(15, 118, 110, .14), transparent 46%),
         linear-gradient(180deg, transparent 0, rgba(159, 18, 57, .08) 100%),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, var(--grid-line) 1px, transparent 1px),
         #f3efe6;
+      background-size: auto, auto, 42px 42px, 42px 42px, auto;
     }
 
     .cover-inner,
@@ -59,7 +67,7 @@
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      padding-bottom: 72px;
+      padding-bottom: 56px;
       color: var(--muted);
       font-size: 13px;
       text-transform: uppercase;
@@ -77,8 +85,8 @@
       max-width: 1120px;
       margin: 0;
       font-family: var(--font-serif-cn);
-      font-size: clamp(52px, 7vw, 96px);
-      line-height: .96;
+      font-size: clamp(42px, 5.6vw, 76px);
+      line-height: 1.02;
       letter-spacing: 0;
       word-break: keep-all;
       overflow-wrap: normal;
@@ -100,19 +108,9 @@
     }
 
     .latest {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: end;
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--ink);
-    }
-
-    .latest p {
-      margin: 0;
-      max-width: 680px;
-      font-size: clamp(17px, 2.2vw, 24px);
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 24px;
     }
 
     .enter {
@@ -140,26 +138,166 @@
       box-shadow: inset 0 2px 8px rgba(0, 0, 0, .22);
     }
 
-    .notice {
-      padding: 14px clamp(18px, 5vw, 72px);
-      color: #7f1d1d;
-      background: #fffaf0;
-      border-bottom: 1px solid var(--line);
+    .cover-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 28px;
     }
 
-    .notice span {
+    .search-section {
+      position: relative;
+      width: 210px;
+      max-width: 220px;
+      margin-left: auto;
+    }
+
+    .search-input-wrap {
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 32px;
+      min-height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, .68);
+      color: var(--ink);
+      font: 12px/1.2 var(--font-sans);
+      padding: 6px 34px 6px 13px;
+      outline: none;
+      transition: border-color .16s ease, background .16s ease, box-shadow .16s ease;
+    }
+
+    .search-input::placeholder {
+      color: #8b857c;
+    }
+
+    .search-input:hover {
+      border-color: #c5bbaa;
+      background: rgba(255, 253, 248, .82);
+    }
+
+    .search-input:focus {
+      border-color: #9f9485;
+      background: #fffdf8;
+      box-shadow: 0 0 0 3px rgba(104, 83, 61, .08);
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      width: 15px;
+      height: 15px;
+      color: var(--muted);
+      opacity: .82;
+      pointer-events: none;
+    }
+
+    .search-status {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 3;
+      width: min(320px, calc(100vw - 36px));
+      margin: 0;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .96);
+      box-shadow: 0 16px 34px rgba(35, 31, 26, .10);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .search-status.is-visible {
       display: block;
-      max-width: 1120px;
-      margin: 0 auto;
-      font-size: 14px;
+    }
+
+    .search-results {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 4;
+      gap: 10px;
+      width: min(340px, calc(100vw - 36px));
+      max-height: min(520px, calc(100vh - 150px));
+      overflow: auto;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .97);
+      box-shadow: 0 18px 42px rgba(35, 31, 26, .12);
+    }
+
+    .search-results.is-visible {
+      display: grid;
+    }
+
+    .search-result {
+      display: grid;
+      gap: 5px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .52);
+      transition: background .16s ease, border-color .16s ease, transform .16s ease;
+    }
+
+    .search-result:hover {
+      background: rgba(255, 255, 255, .64);
+      border-color: rgba(104, 83, 61, .24);
+      transform: translateY(-1px);
+    }
+
+    .search-result:active {
+      transform: translateY(.5px);
+    }
+
+    .search-result-meta,
+    .search-result-source,
+    .search-result-open {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .search-result-title {
+      color: var(--ink);
+      font-family: var(--font-serif-cn);
+      font-size: 16px;
+      line-height: 1.28;
+    }
+
+    .search-result-en,
+    .search-result-snippet {
+      margin: 0;
+      color: #514d46;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .search-result-open {
+      justify-self: start;
+      color: #5f574d;
+      transition: color .16s ease, transform .16s ease;
+    }
+
+    .search-result:hover .search-result-open {
+      color: var(--ink);
+      transform: translateX(2px);
     }
 
     main {
-      padding: 46px clamp(18px, 5vw, 72px) 72px;
+      padding: 42px clamp(18px, 5vw, 72px) 72px;
     }
 
     .archive-heading {
-      margin-bottom: 18px;
+      margin-bottom: 10px;
       padding-bottom: 18px;
       border-bottom: 2px solid var(--ink);
     }
@@ -168,9 +306,9 @@
       display: block;
       margin-bottom: 8px;
       color: var(--muted);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .16em;
       font-family: var(--font-mono);
       text-transform: uppercase;
     }
@@ -178,8 +316,9 @@
     .archive h2 {
       margin: 0;
       font-family: var(--font-serif-cn);
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: clamp(30px, 3.7vw, 46px);
       font-weight: 500;
+      line-height: .98;
       letter-spacing: 0;
     }
 
@@ -189,30 +328,27 @@
 
     .archive-card {
       display: grid;
-      grid-template-columns: minmax(112px, .46fr) minmax(0, 1fr) minmax(132px, .36fr);
-      gap: clamp(16px, 4vw, 44px);
+      grid-template-columns: 160px minmax(0, 1fr) minmax(124px, auto);
+      gap: clamp(18px, 3vw, 28px);
       align-items: center;
-      padding: 24px 0;
+      padding: 22px 6px;
       border-bottom: 1px solid var(--line);
-      transition: background .16s ease, padding .16s ease, border-color .16s ease, transform .16s ease;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
     }
 
     .archive-card:hover {
-      margin-inline: -14px;
-      padding-inline: 14px;
-      background: rgba(255, 253, 248, .72);
-      border-color: #c8bda9;
+      background: rgba(255, 255, 255, .35);
+      border-color: rgba(104, 83, 61, .22);
       transform: translateX(3px);
     }
 
     .archive-card:active {
-      transform: translateX(3px) translateY(1px);
+      transform: translateX(3px) translateY(.5px);
       background: rgba(243, 239, 230, .78);
     }
 
     .archive-date,
     .archive-card em,
-    .archive-range,
     .archive-issue-label {
       color: var(--muted);
       font-style: normal;
@@ -220,9 +356,9 @@
 
     .archive-date {
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 400;
-      letter-spacing: .08em;
+      letter-spacing: .12em;
       white-space: nowrap;
     }
 
@@ -232,9 +368,9 @@
       gap: .06em .18em;
       color: var(--ink);
       font-family: var(--font-serif-cn);
-      font-size: clamp(22px, 3vw, 32px);
+      font-size: clamp(20px, 2.4vw, 28px);
       font-weight: 500;
-      line-height: 1.12;
+      line-height: 1.08;
     }
 
     .archive-title-lockup span {
@@ -242,18 +378,16 @@
       white-space: nowrap;
     }
 
+    .archive-week-label {
+      color: #4f4a43;
+    }
+
     .archive-card em {
       display: block;
       margin-top: 8px;
       max-width: 720px;
       font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .archive-range {
-      display: block;
-      margin-top: 6px;
-      font-size: 12px;
+      line-height: 1.75;
     }
 
     .archive-meta {
@@ -266,14 +400,15 @@
     .archive-issue-label {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: .14em;
       font-family: var(--font-mono);
+      color: #b33a2d;
     }
 
     .archive-open {
-      color: #3f3a33;
-      font-family: var(--font-serif-latin);
-      font-size: 15px;
+      color: var(--muted);
+      font-family: var(--font-sans);
+      font-size: 1rem;
       transition: color .16s ease, transform .16s ease;
       white-space: nowrap;
     }
@@ -285,13 +420,15 @@
 
     @media (max-width: 720px) {
       .cover {
-        min-height: 66vh;
+        min-height: 58vh;
       }
 
       .brand-row,
-      .latest {
+      .latest,
+      .cover-actions {
         grid-template-columns: 1fr;
         display: grid;
+        justify-items: end;
       }
 
       .brand-row {
@@ -299,11 +436,11 @@
       }
 
       h1 {
-        font-size: clamp(44px, 13vw, 56px);
+        font-size: clamp(38px, 11vw, 50px);
       }
 
       .enter {
-        width: 100%;
+        width: auto;
       }
 
       .archive-card {
@@ -311,9 +448,13 @@
         gap: 10px;
       }
 
+      .search-section {
+        width: min(220px, 70vw);
+        max-width: min(220px, 70vw);
+      }
+
       .archive-card:hover {
-        margin-inline: 0;
-        padding-inline: 0;
+        transform: none;
       }
 
       .archive-meta {
@@ -330,15 +471,32 @@
         <span>远航 | KL Voyage</span>
         <span>2026-W22 · 2026-05-28</span>
       </div>
+      <div class="cover-actions">
+        <section class="search-section" aria-label="搜索往期内容">
+          <div class="search-input-wrap">
+            <input
+              class="search-input"
+              id="history-search-input"
+              type="search"
+              autocomplete="off"
+              aria-label="搜索往期内容"
+              placeholder="搜索往期内容"
+            >
+            <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"></circle>
+              <path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+            <p class="search-status" id="history-search-status"></p>
+          </div>
+          <div class="search-results" id="history-search-results" aria-live="polite"></div>
+        </section>
+      </div>
       <h1 class="title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span></h1>
       <div class="latest">
-        <p>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</p>
-        <a class="enter" href="issues/voyage-2026-W22.html">阅读本期</a>
+        <a class="enter" href="issues/voyage-2026-W22.html">阅读最新一期</a>
       </div>
     </div>
   </header>
-
-  <div class="notice"><span>试刊样本，优先覆盖近两周，少量纳入本月代表性公开来源；不代表完整新闻覆盖。</span></div>
 
   <main>
     <section class="archive" aria-label="往期目录">
@@ -351,9 +509,8 @@
         <a class="archive-card" href="issues/voyage-2026-W22.html">
           <time class="archive-date" datetime="2026-05-28">2026-05-28</time>
           <span class="archive-main">
-            <strong class="archive-title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span></strong>
-            <em>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</em>
-            <span class="archive-range">2026-05-01 - 2026-05-27 · 9 items</span>
+            <strong class="archive-title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span><span class="archive-week-label">· 第22周</span></strong>
+            <em>KL Voyage Bus Industry Weekly · Week 22</em>
           </span>
           <span class="archive-meta">
             <span class="archive-issue-label">ISSUE 22</span>
@@ -363,5 +520,137 @@
       </div>
     </section>
   </main>
+  <script>
+    const searchInput = document.getElementById("history-search-input");
+    const searchStatus = document.getElementById("history-search-status");
+    const searchResults = document.getElementById("history-search-results");
+    let searchIndex = [];
+    let searchIndexReady = false;
+    let firstSearchResultUrl = "";
+
+    function normalizeSearchText(value) {
+      return String(value || "").toLowerCase().trim();
+    }
+
+    function queryTokens(value) {
+      return normalizeSearchText(value).split(/\s+/).filter(Boolean);
+    }
+
+    function clearSearchResults(message) {
+      firstSearchResultUrl = "";
+      searchResults.replaceChildren();
+      searchResults.classList.remove("is-visible");
+      setSearchStatus(message);
+    }
+
+    function setSearchStatus(message) {
+      searchStatus.textContent = message || "";
+      searchStatus.classList.toggle("is-visible", Boolean(message));
+    }
+
+    function buildSnippet(item, tokens) {
+      const text = String(item.search_text || item.summary_cn || item.summary_en || "");
+      const lower = text.toLowerCase();
+      const firstHit = tokens.map((token) => lower.indexOf(token)).find((index) => index >= 0);
+      if (firstHit === undefined) return text.slice(0, 96);
+      const start = Math.max(0, firstHit - 34);
+      const end = Math.min(text.length, firstHit + 82);
+      return `${start > 0 ? "…" : ""}${text.slice(start, end)}${end < text.length ? "…" : ""}`;
+    }
+
+    function createResult(item, tokens) {
+      const link = document.createElement("a");
+      link.className = "search-result";
+      link.href = item.article_url || item.issue_url || "#";
+
+      const meta = document.createElement("span");
+      meta.className = "search-result-meta";
+      meta.textContent = [item.issue_number, item.publication_date].filter(Boolean).join(" · ");
+
+      const title = document.createElement("strong");
+      title.className = "search-result-title";
+      title.textContent = item.title_cn || "未命名条目";
+
+      const titleEn = document.createElement("p");
+      titleEn.className = "search-result-en";
+      titleEn.textContent = item.title_en || "";
+
+      const source = document.createElement("span");
+      source.className = "search-result-source";
+      source.textContent = [item.source_name, (item.region_names_cn || item.region_tags || []).join(" · ")]
+        .filter(Boolean)
+        .join(" · ");
+
+      const snippet = document.createElement("p");
+      snippet.className = "search-result-snippet";
+      snippet.textContent = buildSnippet(item, tokens);
+
+      const open = document.createElement("span");
+      open.className = "search-result-open";
+      open.textContent = "打开文章 →";
+
+      link.append(meta, title, titleEn, source, snippet, open);
+      return link;
+    }
+
+    function runSearch() {
+      const tokens = queryTokens(searchInput.value);
+      if (tokens.join("").length < 2) {
+        clearSearchResults("");
+        return;
+      }
+
+      if (!searchIndexReady) {
+        clearSearchResults("");
+        return;
+      }
+
+      const matches = searchIndex
+        .filter((item) => {
+          const text = normalizeSearchText(item.search_text);
+          return tokens.every((token) => text.includes(token));
+        })
+        .slice(0, 10);
+
+      searchResults.replaceChildren();
+      searchResults.classList.remove("is-visible");
+      firstSearchResultUrl = matches[0]?.article_url || matches[0]?.issue_url || "";
+      if (matches.length === 0) {
+        setSearchStatus("暂无匹配内容。");
+        return;
+      }
+
+      setSearchStatus("");
+      searchResults.classList.add("is-visible");
+      matches.forEach((item) => searchResults.append(createResult(item, tokens)));
+    }
+
+    if (searchInput && searchStatus && searchResults) {
+      fetch("./search_index.json")
+        .then((response) => {
+          if (!response.ok) throw new Error("search index unavailable");
+          return response.json();
+        })
+        .then((records) => {
+          searchIndex = Array.isArray(records) ? records : [];
+          searchIndexReady = true;
+          runSearch();
+        })
+        .catch(() => {
+          searchIndexReady = false;
+          clearSearchResults("");
+          console.warn("Search index unavailable.");
+        });
+
+      searchInput.addEventListener("input", runSearch);
+      searchInput.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        if (firstSearchResultUrl) {
+          window.location.href = firstSearchResultUrl;
+        }
+      });
+    }
+  </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>远航 · 客车产业周刊 2026-W22 | KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</title>
+  <title>远航 · 客车产业周刊 | 2026-W22</title>
   <style>
     :root {
       --paper: #f7f4ee;
@@ -38,12 +38,12 @@
     }
 
     .masthead {
-      min-height: 62vh;
+      min-height: 54vh;
       display: grid;
       align-items: end;
       padding: 32px clamp(18px, 5vw, 72px);
       background:
-        linear-gradient(90deg, rgba(104, 83, 61, .11) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 118, 110, .12) 1px, transparent 1px),
         linear-gradient(180deg, rgba(159, 18, 57, .10) 1px, transparent 1px),
         #f3efe6;
       background-size: 42px 42px;
@@ -60,7 +60,7 @@
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      padding-bottom: 64px;
+      padding-bottom: 54px;
       color: var(--muted);
       font-size: 13px;
       letter-spacing: 0;
@@ -78,8 +78,8 @@
       max-width: 1120px;
       margin: 0;
       font-family: var(--font-serif-cn);
-      font-size: clamp(42px, 6vw, 92px);
-      line-height: .98;
+      font-size: clamp(40px, 5.4vw, 76px);
+      line-height: 1.02;
       letter-spacing: 0;
       word-break: keep-all;
       overflow-wrap: normal;
@@ -100,41 +100,79 @@
       font-family: var(--font-serif-cn);
     }
 
-    .subtitle {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: end;
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--ink);
+    .title-week-label {
+      color: inherit;
+      font-family: var(--font-serif-cn);
+      font-weight: inherit;
     }
 
-    .subtitle p {
-      max-width: 680px;
-      margin: 0;
-      color: var(--deep);
-      font-size: clamp(16px, 2vw, 22px);
+    .issue-info-bar {
+      padding: 0 clamp(18px, 5vw, 72px);
+      background: rgba(247, 244, 238, .72);
+      border-bottom: 1px solid var(--line);
     }
 
-    .issue-meta {
+    .issue-info-inner {
+      display: flex;
+      max-width: 1120px;
+      min-height: 58px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 14px 0;
+      position: relative;
+    }
+
+    .issue-info-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 13px;
+      align-items: center;
+      justify-content: center;
       color: var(--muted);
       font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .04em;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .issue-info-meta span:not(:last-child)::after {
+      content: "|";
+      margin-left: 13px;
+      color: #bcb4a6;
+    }
+
+    .back-to-index {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 13px;
+      border: 1px solid #cfc6b8;
+      border-radius: 999px;
+      color: #4f4a43;
+      background: rgba(255, 253, 248, .34);
       font-size: 13px;
-      letter-spacing: .06em;
-      text-align: right;
+      position: absolute;
+      right: 0;
       white-space: nowrap;
+      transition: transform .14s ease, border-color .14s ease, background .14s ease, color .14s ease, box-shadow .14s ease;
     }
 
-    .notice {
-      padding: 14px clamp(18px, 5vw, 72px);
-      border-bottom: 1px solid var(--line);
-      background: #fffaf0;
-      color: #7f1d1d;
-      font-size: 14px;
+    .back-to-index:hover {
+      border-color: #a89d8e;
+      background: rgba(255, 253, 248, .68);
+      color: #2f2a24;
+      transform: translateY(-1px);
     }
 
-    .notice span,
+    .back-to-index:active {
+      transform: translateY(.5px) scale(.99);
+      box-shadow: inset 0 1px 4px rgba(17, 24, 39, .12);
+    }
+
     .content-inner {
       display: block;
       max-width: 1120px;
@@ -260,7 +298,9 @@
 
     .mode-switch {
       display: inline-flex;
+      width: fit-content;
       gap: 6px;
+      margin-left: auto;
       margin-top: 24px;
       padding: 4px;
       border: 1px solid var(--line);
@@ -332,7 +372,7 @@
       display: inline-flex;
       align-items: center;
       color: var(--accent-2);
-      font-weight: 700;
+      font-weight: 500;
       transition: color .14s ease, transform .14s ease;
       white-space: nowrap;
     }
@@ -412,25 +452,26 @@
     .feedback-note,
     .feedback-status {
       margin: 8px 0 0;
-      font-size: 12px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.45;
     }
 
     .feedback-note {
-      color: #8a857c;
+      color: #9a948b;
     }
 
     .feedback-status {
       min-height: 1.65em;
-      color: #8a8178;
+      color: #958e84;
     }
 
     @media (max-width: 760px) {
       .masthead {
-        min-height: 56vh;
+        min-height: 50vh;
       }
 
-      .publication-mark,
-      .subtitle {
+      .publication-mark {
         display: grid;
         grid-template-columns: 1fr;
         text-align: left;
@@ -440,13 +481,22 @@
         padding-bottom: 42px;
       }
 
-      .issue-meta {
-        text-align: left;
-        white-space: normal;
+      .issue-info-inner {
+        display: grid;
+        justify-items: start;
+      }
+
+      .issue-info-meta {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .back-to-index {
+        position: static;
       }
 
       h1 {
-        font-size: clamp(42px, 12vw, 54px);
+        font-size: clamp(38px, 11vw, 50px);
       }
 
       .card-grid {
@@ -469,20 +519,22 @@
     <div class="masthead-inner">
       <div class="publication-mark">
         <span>远航 | KL Voyage</span>
-        <span>2026-W22</span>
+        <span>2026-W22 · 2026-05-28</span>
       </div>
-      <h1 class="title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span></h1>
-      <div class="subtitle">
-        <p>KL Voyage Bus Industry Weekly 2026-W22 Pilot Issue</p>
-        <div class="issue-meta">
-          <div>2026-05-28</div>
-          <div>2026-05-01 - 2026-05-27</div>
-        </div>
-      </div>
+      <h1 class="title-lockup"><span class="title-cn-part">远航 ·</span><span class="title-cn-part">客车产业周刊</span><span class="title-cn-part title-week-label">· 第22周</span></h1>
     </div>
   </header>
 
-  <div class="notice"><span>试刊样本，优先覆盖近两周，少量纳入本月代表性公开来源；不代表完整新闻覆盖。</span></div>
+  <section class="issue-info-bar" aria-label="本期信息">
+    <div class="issue-info-inner">
+      <div class="issue-info-meta">
+        <span>第 22 周</span>
+        <span>2026-05-28发布</span>
+        <span>9 条精选</span>
+      </div>
+      <a class="back-to-index" href="../index.html">返回目录</a>
+    </div>
+  </section>
 
   <nav class="toolbar" aria-label="区域筛选">
     <div class="filter-row">
@@ -496,7 +548,7 @@
   <main>
     <div class="content-inner">
       
-        <article class="news-card" data-regions="xi_ou_qu">
+        <article id="article-voyage-2026-w22-001" class="news-card" data-regions="xi_ou_qu">
           <div class="card-kicker">
             <span>01</span>
             <span>2026-05-21</span>
@@ -550,7 +602,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="xi_ou_qu">
+        <article id="article-voyage-2026-w22-002" class="news-card" data-regions="xi_ou_qu">
           <div class="card-kicker">
             <span>02</span>
             <span>2026-05-21</span>
@@ -604,7 +656,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="xi_ou_qu">
+        <article id="article-voyage-2026-w22-003" class="news-card" data-regions="xi_ou_qu">
           <div class="card-kicker">
             <span>03</span>
             <span>2026-05-15</span>
@@ -658,7 +710,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="xi_ou_qu">
+        <article id="article-voyage-2026-w22-004" class="news-card" data-regions="xi_ou_qu">
           <div class="card-kicker">
             <span>04</span>
             <span>2026-05-11</span>
@@ -712,7 +764,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="xi_ou_qu">
+        <article id="article-voyage-2026-w22-005" class="news-card" data-regions="xi_ou_qu">
           <div class="card-kicker">
             <span>05</span>
             <span>2026-05-21</span>
@@ -766,7 +818,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="xi_ou_qu">
+        <article id="article-voyage-2026-w22-006" class="news-card" data-regions="xi_ou_qu">
           <div class="card-kicker">
             <span>06</span>
             <span>2026-05-20</span>
@@ -820,7 +872,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="dong_nan_fei_qu">
+        <article id="article-voyage-2026-w22-007" class="news-card" data-regions="dong_nan_fei_qu">
           <div class="card-kicker">
             <span>07</span>
             <span>2026-05-04</span>
@@ -874,7 +926,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="xi_ou_qu">
+        <article id="article-voyage-2026-w22-008" class="news-card" data-regions="xi_ou_qu">
           <div class="card-kicker">
             <span>08</span>
             <span>2026-05-20</span>
@@ -928,7 +980,7 @@
           </footer>
         </article>
 
-        <article class="news-card" data-regions="ya_tai_er_qu xi_ou_qu">
+        <article id="article-voyage-2026-w22-009" class="news-card" data-regions="ya_tai_er_qu xi_ou_qu">
           <div class="card-kicker">
             <span>09</span>
             <span>2026-05-16</span>
